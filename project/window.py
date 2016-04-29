@@ -3,6 +3,7 @@ import pygame
 WINDOW_SIZE = (200,100)
 
 def init(size):
+    global WINDOW_SIZE
     WINDOW_SIZE = size
     pygame.init()
 
