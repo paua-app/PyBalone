@@ -1,5 +1,3 @@
-node = Node(2, 3)
-print(str(node.x) +" - " + str(node.y))
 
 class Field:
     BLACK = 0
