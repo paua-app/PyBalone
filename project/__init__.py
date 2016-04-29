@@ -1,13 +1,15 @@
 import playingField
 import window
+import pygame
+import gameLoop
 
 window.init((800,600))
-window = window.getWindow()
+win = window.getWindow()
 back = window.getBackground()
-window.blit(back,(0,0))
+win.blit(back,(0,0))
 
 node = playingField.Node(2, 3)
 print(str(node.x) +" - " + str(node.y))
 
-while True:
-    pygame.display.update()
+loop = gameLoop.gameLoop()
+loop.run()
