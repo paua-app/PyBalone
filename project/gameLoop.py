@@ -8,7 +8,6 @@ class gameLoop:
     renderFunction = lambda x : None
     updateFunction = lambda x : None
     lastUpdate = datetime.datetime.now()
-    updateDeltaTime = 0
     screen = None
     background = pygame.Surface((0,0),0,32)
 
@@ -21,9 +20,8 @@ class gameLoop:
     def addRenderCallback(self, callbackFunction):
         self.renderFunction = callbackFunction
 
-    def addUpdateCallback(self, updateFunction, updateDeltaTime):
+    def addUpdateCallback(self, updateFunction):
         self.updateFunction = updateFunction
-        self.updateDeltaTime = updateDeltaTime
 
     def setBackgroundImage(self, background):
         self.background = background
@@ -40,9 +38,8 @@ class gameLoop:
             self.renderFunction(self.screen)
 
             currentTime = datetime.datetime.now()
-            deltaTime = currentTime - self.lastUpdate
-            if int(deltaTime.total_seconds() * 1000) >= self.updateDeltaTime:
-                self.updateFunction(deltaTime)
-                self.lastUpdate = currentTime
+            deltaTime = datetime.datetime.now() - self.lastUpdate
+            self.updateFunction(deltaTime.total_seconds() * 1000)
+            self.lastUpdate = currentTime
 
             pygame.display.update()

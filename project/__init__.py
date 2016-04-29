@@ -21,19 +21,19 @@ def onInput(key):
 circ = pygame.Surface((30, 30), 0, 32)
 pygame.draw.circle(circ, (0, 255, 0), (15, 15), 15)
 circ.set_colorkey((0,0,0))
-x = 100
+x = 100.0
 def onRender(screen):
     #TODO implement with useful renderings
-    screen.blit(circ, (x, 100))
+    screen.blit(circ, (int(x), 100))
 
 def onUpdate(delta):
     #TODO implement with useful animation/update stuff
     global x
-    x += 10
+    x += delta/10
 
 loop = gameLoop.gameLoop(windowScreen)
 loop.setBackgroundImage(back)
 loop.addKeyInputListener(lambda key : onInput(key))
 loop.addRenderCallback(lambda screen : onRender(screen))
-loop.addUpdateCallback(lambda delta : onUpdate(delta), 250)
+loop.addUpdateCallback(lambda delta : onUpdate(delta))
 loop.run()
