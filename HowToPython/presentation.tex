@@ -87,6 +87,7 @@
 	\begin{itemize}
 		\item Klassen als Schablonen
 		\item Magic Methods für Objektverhalten
+		\item Private Methoden und Felder möglich, jedoch ungenutzt
 	\end{itemize}
 	Magic Methods:
 	\begin{itemize}
@@ -115,6 +116,12 @@
 
 \begin{frame}[fragile]
 	\frametitle{OOP 3 - Vererbung}
+	\begin{itemize}
+		\item Mutterklassen in Klammern
+		\item implizites Override von Methoden und Feldern
+		\item transitiv
+		\item aufrufen von Eigenschaften der Superklasse mit \texttt{super().spam}
+	\end{itemize}
 \end{frame}
 
 \begin{frame}[fragile]
@@ -136,13 +143,22 @@
 	\end{lstlisting}
 \end{frame}
 
-\begin{frame}
-	\frametitle{Pakete und Module}
+\begin{frame}[fragile]
+	\frametitle{Module}
 	\begin{itemize}
 		\item Importe mit \texttt{import >>module<<} oder \texttt{from >>module<< import >>function<<}
 		\item Importe können benannt werden (\texttt{... as >>nick<<})
-		\item Bedingte Importe möglich
+		\item Bedingte Importe möglich:
 	\end{itemize}
+	\begin{lstlisting}
+		from math import factorial as fac
+		if os.name == "WinDoof":
+		    import thatOneLib as lib
+		elif os.name == "Linux":
+		    import thatOtherLib as lib
+		else:
+		    import thatStandartLib as lib
+	\end{lstlisting}
 \end{frame}
 
 \begin{frame}
@@ -150,6 +166,15 @@
 	\begin{itemize}
 		\item drölf verschiedene Frameworks
 		\item Auswahl je nach gewünschter Funktionalität und Zielplattform(en)
+	\end{itemize}
+\end{frame}
+
+\begin{frame}
+	\frametitle{About - Random Facts and Stuff}
+	\begin{itemize}
+		\item PEPs
+		\item Zen of Python
+		\item BDFL
 	\end{itemize}
 \end{frame}
 	

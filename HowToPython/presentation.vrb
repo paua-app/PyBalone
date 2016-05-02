@@ -1,16 +1,15 @@
-\frametitle{Funktionale Programmierung}
+\frametitle{Module}
 \begin{itemize}
-\item Rekursion und Tail Recursion implementierbar
-\item Funktionen höherer Ordnung vorhanden und baubar
-\item \texttt{lambda}-Funktion:
+\item Importe mit \texttt{import >>module<<} oder \texttt{from >>module<< import >>function<<}
+\item Importe können benannt werden (\texttt{... as >>nick<<})
+\item Bedingte Importe möglich:
 \end{itemize}
 \begin{lstlisting}
->>> def square(lst):
-...    o = []
-...    for e in lst:
-...        a = lambda x: x*x
-...        o.append(a(e))
-...    return o
->>> square([1,2,3])
-[1, 4, 9]
+from math import factorial as fac
+if os.name == "WinDoof":
+    import thatOneLib as lib
+elif os.name == "Linux":
+    import thatOtherLib as lib
+else:
+    import thatStandartLib as lib
 \end{lstlisting}
