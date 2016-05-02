@@ -1,7 +1,8 @@
+import game.log as log
 import pygame
-import log
 
 class window:
+    
     __windowSize = (200,100)
     __backgroundColor = (0,0,0,0)
     __surface = None

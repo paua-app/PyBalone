@@ -1,3 +1,5 @@
+__package__ = "PyBalone.project.game.log"
+
 DEBUG = False
 
 def error(tag, message):
