@@ -2,15 +2,14 @@ import playingField
 import window
 import pygame
 import gameLoop
+import log
 
-window.init((800,600))
-windowScreen = window.getWindow()
-back = window.getBackground()
-windowScreen.blit(back,(0,0))
+window = window.window((800,600))
+window.setBackgroundColor((255,0,0,0)) # We can set the color afterwards
 
 # Dummy test for node stuff
 node = playingField.Node(2, 3)
-print(str(node.x) + " - " + str(node.y))
+log.info("__init__-nodeTest", str(node.x) + " - " + str(node.y))
 
 # Some listeners and callback functions:
 # TODO: extract into own file/class
@@ -31,8 +30,8 @@ def onUpdate(delta):
     global x
     x += delta/10
 
-loop = gameLoop.gameLoop(windowScreen)
-loop.setBackgroundImage(back)
+loop = gameLoop.gameLoop(window.getSurface())
+loop.setBackgroundImage(window.newBackgroundSurface())
 loop.addKeyInputListener(lambda key : onInput(key))
 loop.addRenderCallback(lambda screen : onRender(screen))
 loop.addUpdateCallback(lambda delta : onUpdate(delta))
