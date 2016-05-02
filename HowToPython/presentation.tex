@@ -1,0 +1,156 @@
+\documentclass[handout]{beamer}
+
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[ngerman]{babel}
+
+\usetheme{Luebeck}
+\usecolortheme{crane}
+
+\usepackage{listings}
+\lstset{%
+	language=Python,
+	xleftmargin=1cm,
+	xrightmargin=1cm,
+	backgroundcolor=\color{lightgray},
+	keepspaces=true
+}
+
+
+\begin{document}
+\begin{frame}[fragile]
+	\frametitle{Syntax}
+	\begin{itemize}
+		\item ``runnable pseudo code''
+		\item Wie Java, ohne Klammern
+		\item Indentation-empfindlich
+		\item ASCII-Encoding
+		\item Kommentar: \#
+	\end{itemize}
+		\begin{lstlisting}
+			# This is a comment
+			print "Hello World."
+			name = raw_input("What is your name?")
+			print "Hello, %s" % name
+		\end{lstlisting}
+\end{frame}
+
+
+\begin{frame}[fragile]
+	\frametitle{Kontrollstrukturen}
+	\begin{itemize}
+		\item if-(elif)*-(else)?
+		\item while
+		\item foreach
+	\end{itemize}
+	\begin{lstlisting}
+		if condition:
+    		doStuff()
+		elif foo:
+		    bar()
+		elif spam:
+		    eggs()
+		else:
+		    # todo
+	\end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]
+	\frametitle{Daten}
+	\begin{itemize}
+		\item Everything is data (even functions)
+		\item dynamisch getypt
+		\item Funktionen können Tupel zurückgeben
+		\item Default-Parameter möglich
+	\end{itemize}
+	\begin{lstlisting}
+		# alles gueltige Deklarationen
+		a = "String"
+		b = 0
+		c = 0.7
+		d = a
+		a += 1
+	\end{lstlisting}
+\end{frame}
+
+\frame{
+	\frametitle{Mathe in Python}
+	\begin{center}
+		\begin{Huge}
+			\#Demo
+		\end{Huge}
+	\end{center}
+}
+
+\begin{frame}
+	\frametitle{OOP 1}
+	\begin{itemize}
+		\item Klassen als Schablonen
+		\item Magic Methods für Objektverhalten
+	\end{itemize}
+	Magic Methods:
+	\begin{itemize}
+		\item init (Konstruktor)
+		\item add, sub, mul, div \dots (Arithmetik)
+		\item eq, ne, lt, gt, le, ge (Vergleich)
+		\item pos, neg, floor, ceil \dots (Numerik)
+		\item viele, viele mehr (googlen)
+	\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+	\frametitle{OOP 2}
+	\begin{lstlisting}
+		class foo:
+			lst = []
+		    def __init__(self, lst):
+		        self.lst = lst
+		    def __add__(self, lst):
+		        self.lst.append(lst)
+		        return self.lst
+	\end{lstlisting}
+	Konstruktoraufruf: bar = foo([a,b,c])\\
+	Übergibt die Liste [a,b,c] an init
+\end{frame}
+
+\begin{frame}[fragile]
+	\frametitle{OOP 3 - Vererbung}
+\end{frame}
+
+\begin{frame}[fragile]
+	\frametitle{Funktionale Programmierung}
+	\begin{itemize}
+		\item Rekursion und Tail Recursion implementierbar
+		\item Funktionen höherer Ordnung vorhanden und baubar
+		\item \texttt{lambda}-Funktion:
+	\end{itemize}
+	\begin{lstlisting}
+		>>> def square(lst):
+		...    o = []
+		...    for e in lst:
+		...        a = lambda x: x*x
+		...        o.append(a(e))
+		...    return o
+		>>> square([1,2,3])
+		[1, 4, 9]
+	\end{lstlisting}
+\end{frame}
+
+\begin{frame}
+	\frametitle{Pakete und Module}
+	\begin{itemize}
+		\item Importe mit \texttt{import >>module<<} oder \texttt{from >>module<< import >>function<<}
+		\item Importe können benannt werden (\texttt{... as >>nick<<})
+		\item Bedingte Importe möglich
+	\end{itemize}
+\end{frame}
+
+\begin{frame}
+	\frametitle{Grafik Stuff}
+	\begin{itemize}
+		\item drölf verschiedene Frameworks
+		\item Auswahl je nach gewünschter Funktionalität und Zielplattform(en)
+	\end{itemize}
+\end{frame}
+	
+\end{document}

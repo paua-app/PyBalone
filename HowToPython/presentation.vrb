@@ -1,0 +1,16 @@
+\frametitle{Funktionale Programmierung}
+\begin{itemize}
+\item Rekursion und Tail Recursion implementierbar
+\item Funktionen höherer Ordnung vorhanden und baubar
+\item \texttt{lambda}-Funktion:
+\end{itemize}
+\begin{lstlisting}
+>>> def square(lst):
+...    o = []
+...    for e in lst:
+...        a = lambda x: x*x
+...        o.append(a(e))
+...    return o
+>>> square([1,2,3])
+[1, 4, 9]
+\end{lstlisting}
