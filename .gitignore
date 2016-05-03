@@ -66,14 +66,14 @@ target/
 # LaTeX .gitignore stuff #
 ##########################
 ## Core latex/pdflatex auxiliary files:
-#*.aux
-#*.lof
-#*.log
-#*.lot
-#*.fls
-#*.out
-#*.toc
-#*.fmt
+*.aux
+*.lof
+*.log
+*.lot
+*.fls
+*.out
+*.toc
+*.fmt
 
 ## Intermediate documents:
 *.dvi
@@ -94,9 +94,9 @@ target/
 
 ## Build tool auxiliary files:
 *.fdb_latexmk
-#*.synctex
-#*.synctex.gz
-#*.synctex.gz(busy)
+*.synctex
+*.synctex.gz
+*.synctex.gz(busy)
 *.pdfsync
 
 ## Auxiliary and intermediate files from other packages:
