@@ -1,10 +1,10 @@
-\documentclass[handout]{beamer}
+\documentclass{beamer}
 
 \usepackage[T1]{fontenc}
 \usepackage[utf8]{inputenc}
 \usepackage[ngerman]{babel}
 
-\usetheme{Luebeck}
+\usetheme{Madrid}
 \usecolortheme{crane}
 
 \usepackage{listings}
@@ -16,8 +16,13 @@
 	keepspaces=true
 }
 
+\title{HowTo:Python}
+\author{Paua-App // Louis Kobras}
 
 \begin{document}
+\begin{frame}
+	\maketitle
+\end{frame}
 \begin{frame}[fragile]
 	\frametitle{Syntax}
 	\begin{itemize}
@@ -27,6 +32,7 @@
 		\item ASCII-Encoding
 		\item Kommentar: \#
 	\end{itemize}
+	\pause
 		\begin{lstlisting}
 			# This is a comment
 			print "Hello World."
@@ -39,10 +45,11 @@
 \begin{frame}[fragile]
 	\frametitle{Kontrollstrukturen}
 	\begin{itemize}
-		\item if-(elif)*-(else)?
+		\item if-(elif)*-(else)?\footnote{Man beachte die RegEx-Syntax}
 		\item while
 		\item foreach
 	\end{itemize}
+	\pause
 	\begin{lstlisting}
 		if condition:
     		doStuff()
@@ -63,6 +70,7 @@
 		\item Funktionen können Tupel zurückgeben
 		\item Default-Parameter möglich
 	\end{itemize}
+	\pause
 	\begin{lstlisting}
 		# alles gueltige Deklarationen
 		a = "String"
@@ -89,6 +97,7 @@
 		\item Magic Methods für Objektverhalten
 		\item Private Methoden und Felder möglich, jedoch ungenutzt
 	\end{itemize}
+	\pause
 	Magic Methods:
 	\begin{itemize}
 		\item init (Konstruktor)
@@ -122,6 +131,20 @@
 		\item transitiv
 		\item aufrufen von Eigenschaften der Superklasse mit \texttt{super().spam}
 	\end{itemize}
+	\pause
+	\begin{lstlisting}
+	class animal:
+	    ...
+	    def bark():
+	        print "woof"
+	    	
+	class wolf(animal):
+	    ...
+	    
+	    
+	>>> wolf.bark()
+	"woof"
+	\end{lstlisting}
 \end{frame}
 
 \begin{frame}[fragile]
@@ -132,6 +155,7 @@
 		\item \texttt{lambda}-Funktion:
 	\end{itemize}
 	\begin{lstlisting}
+	\pause
 		>>> def square(lst):
 		...    o = []
 		...    for e in lst:
@@ -141,6 +165,7 @@
 		>>> square([1,2,3])
 		[1, 4, 9]
 	\end{lstlisting}
+	$\Rightarrow$ \texttt{lambda}-Funktion an den Buchstaben 'a' gebunden
 \end{frame}
 
 \begin{frame}[fragile]
@@ -150,6 +175,7 @@
 		\item Importe können benannt werden (\texttt{... as >>nick<<})
 		\item Bedingte Importe möglich:
 	\end{itemize}
+	\pause
 	\begin{lstlisting}
 		from math import factorial as fac
 		if os.name == "WinDoof":
@@ -173,7 +199,7 @@
 	\frametitle{About - Random Facts and Stuff}
 	\begin{itemize}
 		\item PEPs
-		\item Zen of Python
+		\item Zen of Python (\texttt{import this})
 		\item BDFL
 	\end{itemize}
 \end{frame}
