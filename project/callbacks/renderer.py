@@ -8,11 +8,11 @@ x = 100.0
 
 def onRender(screen):
     #TODO implement with useful renderings
-    for i in range(0, 10000):
+    for i in range(0, 1):
         screen.blit(circ, (int(x), 100))
 
 def onUpdate(delta):
     #TODO implement with useful animation/update stuff
     global x
     x += delta/10
-    log.info("delta-time", str(delta))
+    log.info("callbacks.renderer.onUPdate delta-time", str(delta))

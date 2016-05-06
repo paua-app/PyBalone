@@ -7,8 +7,6 @@ import callbacks.input
 import callbacks.renderer
 import sys
 
-print(sys.path)
-
 window = window.window((800,600))
 window.setBackgroundColor((255,0,0,0)) # We can set the color afterwards
 

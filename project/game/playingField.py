@@ -28,3 +28,7 @@ class PlayfieldNode(Node):
 
 
     #def addStone
+
+class GuardNode(Node):
+
+    #def addStone
