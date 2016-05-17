@@ -4,9 +4,8 @@ import datetime
 
 class gameLoop:
 
-    __keyInputFunction = lambda x : None
-    __renderFunction = lambda x : None
-    __updateFunction = lambda x : None
+    __keyListener = []
+    __renderListener = []
     __lastUpdate = datetime.datetime.now()
     __screen = None
     __background = pygame.Surface((0,0),0,32)
@@ -15,13 +14,10 @@ class gameLoop:
         self.__screen = __screen
 
     def addKeyInputListener(self, listener):
-        self.__keyInputFunction = listener
+        self.__keyListener.append(listener)
 
-    def addRenderCallback(self, callbackFunction):
-        self.__renderFunction = callbackFunction
-
-    def addUpdateCallback(self, __updateFunction):
-        self.__updateFunction = __updateFunction
+    def addRenderListener(self, listener):
+        self.__renderListener.append(listener)
 
     def setBackgroundImage(self, __background):
         self.__background = __background
@@ -32,14 +28,21 @@ class gameLoop:
                 if event.type == pygame.QUIT:
                     sys.exit()
                 elif event.type == pygame.KEYDOWN:
-                    self.__keyInputFunction(event.key)
-
-            self.__screen.blit(self.__background, (0,0))
-            self.__renderFunction(self.__screen)
+                    # notify all listeners:
+                    for listener in self.__keyListener:
+                        listener.onInput(event.key)
 
             currentTime = datetime.datetime.now()
             deltaTime = datetime.datetime.now() - self.__lastUpdate
-            self.__updateFunction(deltaTime.total_seconds() * 1000)
             self.__lastUpdate = currentTime
+
+            # notify all listeners for updates
+            for listener in self.__renderListener:
+                listener.onUpdate(deltaTime.total_seconds() * 1000)
+
+            # notify all listeners for render
+            self.__screen.blit(self.__background, (0,0))
+            for listener in self.__renderListener:
+                listener.onRender(self.__screen)
 
             pygame.display.update()

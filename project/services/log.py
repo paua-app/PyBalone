@@ -1,4 +1,4 @@
-__package__ = "PyBalone.project.game.log"
+__package__ = "PyBalone.project.materials.log"
 
 DEBUG = False
 

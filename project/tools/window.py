@@ -1,5 +1,7 @@
-import game.log as log
 import pygame
+
+import services.log as log
+
 
 class window:
 
@@ -9,7 +11,7 @@ class window:
 
     def __init__(self, size):
         """
-        Initializes all variables and calls all init function needed to start the game.
+        Initializes all variables and calls all init function needed to start the materials.
 
         Arguments:
         size -- The size of the window.
@@ -41,7 +43,7 @@ class window:
         color -- The new color of the window.
         """
         self.__backgroundColor = color
-        if self.__surface == None:
-            self.__surface.blit(getBackgroundSurface(),(0,0))
+        if self.__surface != None:
+            self.__surface.blit(self.newBackgroundSurface(),(0,0))
         else:
             log.error("window-SetBackgroundColor", "The surface is of type None, so some init methods were not called.")

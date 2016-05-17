@@ -1,3 +1,4 @@
+# TODO extract classes into own files
 
 class Field:
     BLACK = 0
@@ -13,7 +14,8 @@ class Node:
         self.y = y
 
 class PlayfieldNode(Node):
-    # Compass:
+    # These are the directions of the neighbor fields:
+    #
     #     NW    NE
     #
     # E    self     W
@@ -30,5 +32,6 @@ class PlayfieldNode(Node):
     #def addStone
 
 class GuardNode(Node):
+    pass #TODO remove when there's some implementation
 
     #def addStone
